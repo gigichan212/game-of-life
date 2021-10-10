@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    </link>
+
+</head>
+
+
+<body>
+    <header>
+        <nav class="sticky-top  navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">
+                <h1>Game of Life</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Game <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="author.html">Author</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <section id="banner">
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="banner-1.jpg" alt="First slide">
+                    <div class="carousel-text-group">
+                        <a href="#game">
+                            <div class="carousel-text">
+                                <span>DON'T WAIT, PLAY!</span>
+                                <i class="fas fa-sort-down"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="game">
+        <div class="game row">
+            <div>
+                <div class="keycontrol">
+                    <div>
+                        <p>KEY MODE</p>
+                        <img src="png/001-alt.png" width="30px" height="30px">
+                    </div>
+                    <div>
+                        <p>DOWN</p>
+                        <img src="png/002-down.png" width="30px" height="30px">
+                    </div>
+                    <div>
+                        <p>UP</p>
+                        <img src="png/005-up arrow.png" width="30px" height="30px">
+                    </div>
+                    <div>
+                        <p>LEFT</p>
+                        <img src="png/003-left.png" width="30px" height="30px">
+                    </div>
+                    <div>
+                        <p>RIGHT</p>
+                        <img src="png/004-right.png" width="30px" height="30px">
+                    </div>
+                    <div>
+                        <p>SELECT LIFE</p>
+                        <img src="png/046-tab key.png" width="30px" height="30px">
+                    </div>
+                    <div>
+                        <p>CONFIRM</p>
+                        <img src="png/041-return.png" width="30px" height="30px">
+                    </div>
+                    <div>
+                        <p>CLEAR LIFE</p>
+                        <img src="png/023-escape.png" width="30px" height="30px">
+                    </div>
+
+                </div>
+                <div id='canvas'></div>
+            </div>
+
+            <div class="controlgp">
+                <!-- <h1>Game of Life</h1>-->
+
+
+                <div class="Maincontrolbtn">
+                    <i id="pause-game" class="far fa-stop-circle"></i>
+                    <i id="continue-game" class="far fa-play-circle"></i>
+                    <div>
+                        <button type="button" class="btn btn-outline-danger" id="clear-game">CLEAR LIFE</button>
+                        <button type="button" class="btn btn-outline-danger" id="random-game">RANDOM</button>
+                    </div>
+                </div>
+                <div class="controlbtn">
+
+
+                    <h5>Create Own Setting</h5>
+                    <div class="form-group row">
+                        <label>Size of Cell</label>
+                        <select class="form-control" id="boardSize">
+                            <option value="10">Small</option>
+                            <option value="20" selected="selected">Normal</option>
+                            <option value="30">Large</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <label>Select Pattern</label>
+                        <select class="form-control" id="patterns">
+                            <option value="none">None</option>
+                            <option value="glider">Glider</option>
+                            <option value="quadpole">Quadpole</option>
+                        </select>
+                    </div>
+
+                    <div id="speed" class="form-group row">
+                        <label>Speed</label>
+                    </div>
+
+                </div>
+                <div>
+                    <h5>The Rules of Survival/ Reproduction</h5>
+                    <div class="form-group row">
+                        <label data-trigger="hover" data-toggle="popover" title="Default: 2 Neighbors"
+                            data-content="If a box has life and it has less than (centain) neighbors. It dies of loneliness. The box become lifeless next generation.">
+                            Die of Loneliness</label>
+                        <select class="form-control" id="dieForLoneliness">
+                            <option value="1">1</option>
+                            <option value="2" selected="selected">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <label data-trigger="hover" data-toggle="popover" title="Default: 3 Neighbors"
+                            data-content="If a box has life and it has more than (centain) neighbors. It dies of overpopulation. The box become lifeless next generation.">
+                            Die of Overpopulation</label>
+                        <select class="form-control" id="dieForOverpopulation">
+                            <option value="3" selected="selected">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <label data-trigger="hover" data-toggle="popover" title="Default: 3 Neighbors"
+                            data-content="If a box has no life and it has (centain) neighbors, the box become with life next generation because of reproduction.">
+                            Rules of Reproduction</label>
+                        <select class="form-control" id="reproduction">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3" selected="selected">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-danger btn-lg" id="reset-game">
+                        <i class="far fa-trash-alt"></i>
+                        RESET ALL
+                    </button>
+                    <div id="grey">GREY</div>
+                    <audio id="myAudio" src="leadguitar.mp3"></audio>
+                    <button type="button" class="btn " id="play">
+                        <i class="fas fa-volume-mute"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+    <script src="index2.js"></script>
+</body>
+
+</html>
