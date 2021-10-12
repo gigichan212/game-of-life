@@ -64,7 +64,7 @@ section#game::after {
     content: "";
     background-image: 
     linear-gradient(rgba(32, 32, 36, 0.5), rgba(34, 34, 31, 0.171)),
-    url(pexels-moose-photos-1037992.jpg);
+    url(assets/images/pexels-moose-photos-1037992.jpg);
     background-repeat: repeat;
     opacity: 0.4;
     top: 0;

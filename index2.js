@@ -26,7 +26,7 @@ let reproductionOption = 3;
 /** About the Sound */
 document.createElement("audio");
 let myAudio = document.querySelector('#myAudio');
-myAudio.src = "leadguitar.mp3";
+myAudio.src = "assets/audio/leadguitar.mp3";
 myAudio.play();
 myAudio.pause();
 let playing = false;
